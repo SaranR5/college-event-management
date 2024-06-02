@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <style>
+        .foo {
+            display: flex;
+            flex-direction: column;
+            min-height: 70vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blanchedalmond;
+            text-align: center;
+            padding: 20px;
+        }
+        .content p {
+            font-size: 30px;
+            color: #393e46;
+        }
+        .content form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content input[type="email"], .content input[type="submit"] {
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .content input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+        .content input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .content input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            border-top: 1px solid #ccc;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer .footer-content div {
+            margin: 10px;
+            text-align: center;
+        }
+        footer .footer-content img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div>
+            <p>ENTER YOUR EMAIL FOR EVENTS & NEWS</p>
+            <form action="/action_page.php">
+                <input type="email" id="email" name="email" placeholder="Enter your E-mail Address">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <img src="path/to/your/phone-call.png" alt="Phone">
+                <div>Phone:</div>
+                <div>+123 456 7890</div>
+            </div>
+            <div>
+                <img src="path/to/your/email.png" alt="Email">
+                <div>Email:</div>
+                <div>info@example.com</div>
+            </div>
+            <div>
+                <img src="path/to/your/location.png" alt="Address">
+                <div>Address:</div>
+                <div>123 Main Street, Anytown, AN 12345</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

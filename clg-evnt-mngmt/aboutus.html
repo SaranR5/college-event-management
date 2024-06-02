@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgb(239, 239, 255), rgb(218, 218, 246));
+        }
+
+        :root {
+            --menu-width: 350px;
+            --scene-width: 1000px;
+            --scene-height: 400px;
+            --gray: rgb(158, 158, 222);
+            --white: rgb(158, 158, 222);
+        }
+
+        .container1 {
+            font-family: "Tahoma";
+            user-select: none;
+            margin:0;
+            padding: 0;
+
+        }
+
+        #scene {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            width: var(--scene-width);
+            height: var(--scene-height);
+            position: absolute;
+            top: 20vh;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            overflow: hidden;
+        }
+
+        #left-zone {
+            background: white;
+            height: 75%;
+            flex-grow: 0;
+            display: flex;
+            width: var(--menu-width);
+            align-items: center;
+            justify-content: left;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            align-content: stretch;
+            flex-direction: column;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .item {
+            input[type="radio"] {
+                display: none;
+
+                &~label {
+                    display: block;
+                    background-color: white;
+                    opacity: 0.5;
+                    height: 50px;
+                    text-align: center;
+                    line-height: 50px;
+
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+
+                    &:hover {
+                        opacity: 0.75;
+                        cursor: pointer;
+                    }
+                }
+
+                &~.content {
+                    position: absolute;
+                    left: var(--menu-width);
+                    top: calc(-1 * var(--scene-height));
+                    width: calc(var(--scene-width) - var(--menu-width));
+                    height: var(--scene-height);
+                    animation-duration: 0.75s;
+                    animation-name: slideout;
+                    animation-timing-function: ease-out;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+
+                &:checked {
+                    &~label {
+                        opacity: 1;
+                        animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                    }
+
+                    &~.content {
+                        animation-duration: 0.75s;
+                        animation-name: slidein;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                    }
+                }
+            }
+        }
+
+        #middle-border {
+            background-color: var(--gray);
+            height: 75%;
+            flex-grow: 1;
+            max-width: 2px;
+            z-index: 0;
+        }
+
+        #right-zone {
+            background: var(--white);
+            height: 100%;
+            flex-grow: 3;
+        }
+
+        @keyframes slidein {
+            0% {
+                top: calc(-1 * var(--scene-height));
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                top: 0px;
+            }
+        }
+
+        @keyframes slideout {
+            0% {
+                top: 0;
+                opacity: 1;
+            }
+
+            100% {
+                top: calc(-1 * var(--scene-height));
+                opacity: 0;
+            }
+        }
+
+        .content_workshop {
+            background-image: url('https://www.gitam.edu/sites/default/files/2022-08/ecce-gitam-image.jpg');
+        }
+
+        .content_fest {
+            background-image: url('https://res.cloudinary.com/jerryhaxor/image/upload/v1702028659/shore%2024/image_19.43.11_nwhiuy.jpg');
+        }
+
+        .content_seminar {
+            background-image: url('https://media.licdn.com/dms/image/D4E22AQEIt_OntHq60Q/feedshare-shrink_800/0/1699019216499?e=2147483647&v=beta&t=6vpodjmk19v2lw_JkwNLOFaZaTLMgCzb70LdAM0mn1I');
+        }
+
+        .content_hackathon {
+            background-image: url('https://campusconnect.gitam.edu/Admin/assets/uploads//sliders/gitam_campus_connect_desktop_15_Banner_.jpg');
+        }
+
+        .content_alumni_meets {
+            background-image: url('https://homecoming.gitam.edu/img/register.png');
+        }
+
+        .content {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .add {
+            margin-top: 95vh;
+            margin-left: 72px;
+            margin-right: 72px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="Dolly.png" alt="Logo" class="imagee"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="index.html#eventi">Events</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container1">
+        <div id="scene">
+            <div id="left-zone">
+                <ul class="list">
+                    <li class="item">
+                        <input type="radio" id="radio_workshop" name="basic_carousel" value="workshop" checked>
+                        <label for="radio_workshop" class="label_workshop">Workshops</label>
+                        <div class="content content_workshop">
+                            <span class="picto"></span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_fest" name="basic_carousel" value="fest">
+                        <label for="radio_fest" class="label_fest">Fests</label>
+                        <div class="content content_fest">
+                            <span class="picto"></span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_seminar" name="basic_carousel" value="seminar">
+                        <label for="radio_seminar" class="label_seminar">Seminars</label>
+                        <div class="content content_seminar">
+                            <span class="picto"></span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_hackathon" name="basic_carousel" value="hackathon">
+                        <label for="radio_hackathon" class="label_hackathon">Hackathons</label>
+                        <div class="content content_hackathon">
+                            <span class="picto"></span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_alumni_meets" name="basic_carousel" value="alumni_meets">
+                        <label for="radio_alumni_meets" class="label_alumni_meets">Alumni Meets</label>
+                        <div class="content content_alumni_meets">
+                            <span class="picto"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="middle-border"></div>
+            <div id="right-zone"></div>
+        </div>
+    </div>
+    <div class="add">
+
+        <div class="card"> <img
+                src="https://www.gitam.edu/sites/default/files/2022-08/ecce-gitam-image.jpg"
+                alt="Workshop Image">
+            <div class="card-content">
+                <h2>Workshops</h2>
+                <p>"Join us in our hands-on workshops where creativity meets skill. Explore new techniques, learn from
+                    industry experts, and unleash your potential to innovate."</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://res.cloudinary.com/jerryhaxor/image/upload/v1702028659/shore%2024/image_19.43.11_nwhiuy.jpg"
+                alt="Fest Image">
+            <div class="card-content">
+                <h2>Fests</h2>
+                <p>"Step into a world of celebration and excitement at our vibrant fests. From music to art, dance to
+                    drama, immerse yourself in a whirlwind of colors and experiences."</p>
+            </div>
+        </div>
+
+        <div class="card"> <img
+                src="https://media.licdn.com/dms/image/D4E22AQEIt_OntHq60Q/feedshare-shrink_800/0/1699019216499?e=2147483647&v=beta&t=6vpodjmk19v2lw_JkwNLOFaZaTLMgCzb70LdAM0mn1I"
+                alt="Seminar Image">
+            <div class="card-content">
+                <h2>Seminars</h2>
+                <p>"Engage in insightful discussions and gain valuable knowledge at our seminars. Explore emerging
+                    trends, exchange ideas, and connect with thought leaders shaping the future."</p>
+            </div>
+        </div>
+
+        <div class="card"> <img
+                src="https://campusconnect.gitam.edu/Admin/assets/uploads//sliders/gitam_campus_connect_desktop_15_Banner_.jpg"
+                alt="Hackathon Image">
+            <div class="card-content">
+                <h2>Hackathons</h2>
+                <p>"Calling all innovators and problem-solvers! Dive into the thrill of competition at our hackathons.
+                    Collaborate, code, and create innovative solutions to real-world challenges."</p>
+            </div>
+        </div>
+
+        <div class="card"> <img
+                src="https://homecoming.gitam.edu/img/register.png"
+                alt="Alumni Image">
+            <div class="card-content">
+                <h2>Alumni Meets</h2>
+                <p>"Reconnect with old friends and forge new connections at our alumni meets. Celebrate shared memories,
+                    achievements, and the enduring spirit of our community."</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

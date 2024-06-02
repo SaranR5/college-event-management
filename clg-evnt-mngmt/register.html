@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Registration Form</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        body{
+            background-image: linear-gradient(rgb(239, 239, 255), rgb(218, 218, 246));
+        }
+        .container1 {
+            font-family: 'Arial', sans-serif;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgb(239, 239, 255), rgb(218, 218, 246))
+        }
+        .container {
+            background: #fff;
+            max-width: 500px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: rgb(133, 133, 227);;
+        }
+        .submit-btn {
+            background-color: rgb(133, 133, 227);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="Dolly.png" alt="Logo" class="imagee"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="index.html#eventi">Events</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container1">
+        <div class="container">
+            <h2>College Event Registration Form</h2>
+            <form id="register-form" method="POST" action="register.php">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" pattern="[A-Za-z]+" title="Name should contain only alphabets" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Please enter a valid email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="rollNo">Roll Number:</label>
+                    <input type="text" id="rollNo" name="rollNo" pattern="[A-Za-z0-9]+" title="Roll number should contain only alphabets and numbers" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactNo">Contact Number:</label>
+                    <input type="tel" id="contactNo" name="contactNo" pattern="[0-9]{10}" title="Contact number should contain exactly 10 digits" required>
+                </div>
+                <div class="form-group">
+                    <label for="event">Event:</label>
+                    <select id="event" name="event" required>
+                        <option value="" disabled selected>Select Event</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="branch">Branch:</label>
+                    <input type="text" id="branch" name="branch" pattern="[A-Za-z]+" title="Branch should contain only alphabets" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year of Study:</label>
+                    <select id="year" name="year" required>
+                        <option value="" disabled selected>Select Year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                        <option value="Postgraduate">Postgraduate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('fetch_events.php')
+                .then(response => response.json())
+                .then(events => {
+                    const eventSelect = document.getElementById('event');
+                    events.forEach(event => {
+                        const option = document.createElement('option');
+                        option.value = event.name; 
+                        option.textContent = event.name;
+                        eventSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching events:', error);
+                });
+        });
+
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = this;
+      fetch(form.action, {
+        method: form.method,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(form))
+      })
+      .then(response => response.text())
+      .then(result => {
+        alert(result);
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error adding event:', error);
+      });
+    });
+
+        
+    </script>
+</body>
+</html>

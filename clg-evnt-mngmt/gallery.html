@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Boxes with Hover Effect</title>
+    <style>
+        .main-gallery {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container4 {
+            display: flex;
+            flex-wrap: wrap;
+            width: 60%;
+            justify-content: space-between;
+        }
+
+        .box {
+            position: relative;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .box img {
+            width: 100%;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 10px;
+            line-height: 1.5;
+            padding: 40px 60px;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="main-gallery">
+    <div class="container4">
+        <div class="box">
+            <img src="workshop.jpeg" alt="Image 1">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h2 class="heading">Workshop</h2>
+                    <p>Universities offer workshops to provide students with hands-on experience, allowing them to delve
+                        deeper into specific topics and develop practical skills that complement their classroom
+                        learning.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="fest.jpeg" alt="Image 2">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h2 class="heading">Festival</h2>
+                    <p>University fests celebrate student life with a vibrant mix of competitions, performances, and
+                        social events, fostering a sense of community and providing an exciting break from academics.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="seminar.jpeg" alt="Image 3">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h2 class="heading">Seminar</h2>
+                    <p>Seminars at universities bring together experts to share their knowledge and current research on
+                        various subjects. These in-depth discussions broaden students' perspectives and spark critical
+                        thinking.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="hacethon.jpeg" alt="Image 4">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h2 class="heading">Hackathon</h2>
+                    <p>Hackathons challenge students to collaborate intensively for a short period to develop creative
+                        solutions to real-world problems, fostering innovation and teamwork.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="alumini.jpeg" alt="Image 5">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <h2 class="heading">Alumni Meet</h2>
+                    <p>Alumni meets connect current students with successful graduates, offering valuable insights into
+                        career paths and fostering a sense of community within the university.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <img src="webinar.jpeg" alt="Image 6">
+            <div class="overlay">
+                <div class="overlay-text">
+                    ` <h2 class="heading">Webinar</h2>
+                    <p>University webinars connect students with industry experts and faculty from around the world,
+                        offering convenient access to specialized knowledge and fostering engagement on current topics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

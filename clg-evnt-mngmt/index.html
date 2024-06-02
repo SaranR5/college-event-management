@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Home</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="Dolly.png" alt="Logo" class="imagee"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#eventi">Events</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container1">
+
+        <div class="container">
+            <div>
+                <div class="content">
+                    <h2>Workshop</h2>
+
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Fest</h2>
+
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Seminar</h2>
+
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Hackathon</h2>
+
+                </div>
+            </div>
+            <div>
+                <div class="content">
+                    <h2>Alumini Meets</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border-top:2px solid rgb(158, 158, 222);"></div><br>
+    <div class="container2" id="eventi">
+        <div style="border-left:5px solid rgb(158, 158, 222); font-size: x-large; font-weight: 800;">&nbsp;Current
+            Events:</div><br>
+        <div id="event-cards"></div>
+    </div><br>
+
+    <div style="border-top:2px solid rgb(158, 158, 222);"></div><br>
+    <div style="border-left:5px solid rgb(158, 158, 222); font-size: x-large; font-weight: 800;">&nbsp;Gallery:</div><br>
+    <div class="main-gallery">
+        <div class="container4">
+            <div class="box">
+                <img src="workshop.jpeg" alt="Image 1">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <h2 class="heading">Workshop</h2>
+                        <p>Universities offer workshops to provide students with hands-on experience, allowing them to delve
+                            deeper into specific topics and develop practical skills that complement their classroom
+                            learning.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="fest.jpeg" alt="Image 2">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <h2 class="heading">Festival</h2>
+                        <p>University fests celebrate student life with a vibrant mix of competitions, performances, and
+                            social events, fostering a sense of community and providing an exciting break from academics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="seminar.jpeg" alt="Image 3">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <h2 class="heading">Seminar</h2>
+                        <p>Seminars at universities bring together experts to share their knowledge and current research on
+                            various subjects. These in-depth discussions broaden students' perspectives and spark critical
+                            thinking.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="hacethon.jpeg" alt="Image 4">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <h2 class="heading">Hackathon</h2>
+                        <p>Hackathons challenge students to collaborate intensively for a short period to develop creative
+                            solutions to real-world problems, fostering innovation and teamwork.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="alumini.jpeg" alt="Image 5">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <h2 class="heading">Alumni Meet</h2>
+                        <p>Alumni meets connect current students with successful graduates, offering valuable insights into
+                            career paths and fostering a sense of community within the university.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="webinar.jpeg" alt="Image 6">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        ` <h2 class="heading">Webinar</h2>
+                        <p>University webinars connect students with industry experts and faculty from around the world,
+                            offering convenient access to specialized knowledge and fostering engagement on current topics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="foo">
+        <div class="content">
+            <div>
+                <p>ENTER YOUR EMAIL FOR EVENTS & NEWS</p>
+                <form action="/action_page.php">
+                    <input type="email" id="email" name="email" placeholder="Enter your E-mail Address">
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <img src="phone.jpg" alt="Phone">
+                    <div>Phone:</div>
+                    <div>+123 456 7890</div>
+                </div>
+                <div>
+                    <img src="email.jpg" alt="Email">
+                    <div>Email:</div>
+                    <div>support@dolly.com</div>
+                </div>
+                <div>
+                    <img src="maps.jpg" alt="Address">
+                    <div>Address:</div>
+                    <div><pre>Yendada, Gitam University
+ Visakhapatnam, 530045</pre></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function addEventCard(eventName, imageUrl, slotsAvailable, description) {
+            var eventCardsContainer = document.getElementById("event-cards");
+
+            var cardDiv = document.createElement("div");
+            cardDiv.classList.add("card");
+
+            var img = document.createElement("img");
+            img.src = imageUrl;
+            img.alt = eventName + " Image";
+            cardDiv.appendChild(img);
+
+            var cardContentDiv = document.createElement("div");
+            cardContentDiv.classList.add("card-content");
+
+            var eventNameHeader = document.createElement("h2");
+            eventNameHeader.textContent = eventName;
+            cardContentDiv.appendChild(eventNameHeader);
+
+            var descriptionPara = document.createElement("p");
+            descriptionPara.textContent = "Description: " + description;
+            cardContentDiv.appendChild(descriptionPara);
+
+            var slotsPara = document.createElement("p");
+            slotsPara.textContent = "No. of Slots Available: " + slotsAvailable;
+            cardContentDiv.appendChild(slotsPara);
+
+            var registerBtn = document.createElement("button");
+            registerBtn.classList.add("register-btn");
+            registerBtn.textContent = "Register";
+            registerBtn.onclick = function () {
+                window.location.href = 'register.html';
+            };
+            cardContentDiv.appendChild(registerBtn);
+
+            cardDiv.appendChild(cardContentDiv);
+
+            eventCardsContainer.appendChild(cardDiv);
+        }
+
+        fetch('get_events.php')
+            .then(response => response.json())
+            .then(events => {
+                if (events.length === 0) {
+                    var eventCardsContainer = document.getElementById("event-cards");
+                    var mes = "No events available currently."
+                    eventCardsContainer.textContent = mes;
+                } else {
+                    events.forEach(event => {
+                        addEventCard(event.name, event.imageUrl, event.slots, event.description);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+
+
+</body>
+
+</html>

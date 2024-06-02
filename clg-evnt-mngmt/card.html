@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon Event Cards</title>
+  <style>
+    .card {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .card img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .register-btn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="event-cards"></div>
+
+<script>
+  function addEventCard(eventName, imageUrl, slotsAvailable, description) {
+    var eventCardsContainer = document.getElementById("event-cards");
+
+    var cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+
+    var img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = eventName + " Image";
+    cardDiv.appendChild(img);
+
+    var cardContentDiv = document.createElement("div");
+    cardContentDiv.classList.add("card-content");
+
+    var eventNameHeader = document.createElement("h2");
+    eventNameHeader.textContent = eventName;
+    cardContentDiv.appendChild(eventNameHeader);
+
+    var descriptionPara = document.createElement("p");
+    descriptionPara.textContent = "Description: " + description;
+    cardContentDiv.appendChild(descriptionPara);
+
+    var slotsPara = document.createElement("p");
+    slotsPara.textContent = "No. of Slots Available: " + slotsAvailable;
+    cardContentDiv.appendChild(slotsPara);
+
+    var registerBtn = document.createElement("button");
+    registerBtn.classList.add("register-btn");
+    registerBtn.textContent = "Register";
+    registerBtn.onclick = function() {
+      window.location.href = 'index1.html'; 
+    };
+    cardContentDiv.appendChild(registerBtn);
+
+    cardDiv.appendChild(cardContentDiv);
+
+    eventCardsContainer.appendChild(cardDiv);
+  }
+
+  fetch('get_events.php')
+    .then(response => response.json())
+    .then(events => {
+      if (events.length === 0) {
+        var eventCardsContainer = document.getElementById("event-cards");
+        eventCardsContainer.textContent = "No events available currently.";
+      } else {
+        events.forEach(event => {
+          addEventCard(event.name, event.imageUrl, event.slots, event.description);
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+</script>
+
+</body>
+</html>

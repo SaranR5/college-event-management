@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: violet;
+        }
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: violet;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="#"><img src="path/to/your/logo.png" alt="Logo"></a>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>
